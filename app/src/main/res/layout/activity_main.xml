@@ -25,6 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Call Ambulance" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNavBMI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BMI Calculator" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
