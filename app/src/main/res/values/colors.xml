@@ -6,5 +6,35 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="btn_bg">#406343</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#146356</color>
+    <color name="colorPrimaryDark">#243D25</color>
+    <color name="colorAccent">#406343</color>
+    <color name="view_color">#557C55</color>
+    <color name="skip_color">#616161</color>
+    <color name="login_statusbar_color">#406343</color>
+    <color name="login_toolbar_color">#146356</color>
+    <color name="gradient_start">#243D25</color>
+    <color name="gradient_end">#406343</color>
+    <color name="home_background">#ededed</color>
+    <color name="colorwhite">#ffffff</color>
+    <color name="book_loading_background">#ffffff</color>
+    <color name="book_loading_book">#557C55</color>
+    <color name="book_loading_page">#ffffff</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="first_color">#000000</color>
+    <color name="second_color">#585656</color>
+    <color name="third_color">#acabab</color>
+    <color name="forth_color">#bcbcbc</color>
+    <color name="background">#f7f7f7</color>
+    <color name="single_line">#dddddd</color>
+    <color name="detail_screen_text">#66806A</color>
+    <color name="hint_color">@android:color/darker_gray</color>
+    <color name="view_all">#557C55</color>
+    <color name="text_color">#484848</color>
+    <color name="demo_item">#d8d8d8</color>
+    <color name="light_grey">#cccccc</color>
+    <color name="tw__transparent">#00000000</color>
 </resources>

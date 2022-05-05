@@ -37,12 +37,13 @@ public class BMIActivity extends AppCompatActivity {
 
                 try {
                     if ((weight.getText() != null) && (height.getText() != null)) {
-                        float w = Float.parseFloat(weight.getText().toString());
-                        float h = Float.parseFloat(height.getText().toString());
-                        float bmi = (100 * 100 * w) / (h * h);
+                        double w = Double.parseDouble(weight.getText().toString());
+                        double h = Double.parseDouble(height.getText().toString());
+                        double bmi = w / (h * h);;
+                        bmi = Math.round(bmi * 100.0) / 100.0;
 
                         resultLayout.setVisibility(View.VISIBLE);
-                        value.setText(bmi + "");
+                        value.setText(bmi+"");
 
 
                         if (bmi < 18.5) {

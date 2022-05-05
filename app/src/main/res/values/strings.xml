@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HealthCareApp</string>
+    <string name="signup_bottom_text">Already have an account? <b>Sign In Now</b></string>
+    <string name="login_bottom_text">Do not have account? <b>Create Account</b> </string>
 </resources>

@@ -8,6 +8,18 @@
     android:orientation="vertical"
     tools:context=".BMIActivity">
 
+    <ImageView
+        android:id="@+id/ui_splash_logo"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logosplash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +28,7 @@
 
     <EditText
         android:id="@+id/txtWeight"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Weight"
         android:textColor="@color/black" />
@@ -24,12 +36,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="Please enter your height in cm:"
         android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/txtHeight"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Height"
         android:textColor="@color/black" />
@@ -39,26 +52,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Calculate" />
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#406343"
+        android:text="Calculate"
+        app:cornerRadius="40dp" />
 
-<LinearLayout
-    android:visibility="gone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/resLayout"
-    android:orientation="horizontal">
-    <TextView
+    <LinearLayout
+        android:id="@+id/resLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your BMI is: "
-        android:textColor="@color/black"/>
+        android:orientation="horizontal"
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/txtBMIValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your BMI is: "
+            android:textColor="@color/black" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtBMIValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

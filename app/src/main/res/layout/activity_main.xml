@@ -12,30 +12,35 @@
         android:id="@+id/btnNavChatbot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg"
         android:text="Chatbot" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNavConference"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg"
         android:text="Video Conference" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNavCallAmbulance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg"
         android:text="Call Ambulance" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNavBMI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg"
         android:text="BMI Calculator" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_bg"
         android:text="Sign Out" />
 
 </LinearLayout>
