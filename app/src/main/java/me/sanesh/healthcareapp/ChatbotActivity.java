@@ -49,7 +49,6 @@ public class ChatbotActivity extends AppCompatActivity implements ReplyInterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbot);
 
-
         recyclerView = findViewById(R.id.chatView);
         txtText = findViewById(R.id.editMessage);
         sendButton = findViewById(R.id.btnSend);
@@ -97,6 +96,7 @@ public class ChatbotActivity extends AppCompatActivity implements ReplyInterface
     }
 
     private void sendTextToChatBot(String message) {
+
         QueryInput input = QueryInput.newBuilder()
                 .setText(TextInput.newBuilder().setText(message).setLanguageCode("en-US")).build();
         new TextSend(sessionName, sessionsClient, input,this).execute();
