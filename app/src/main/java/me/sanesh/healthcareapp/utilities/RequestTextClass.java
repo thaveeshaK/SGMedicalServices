@@ -11,15 +11,15 @@ import com.google.cloud.dialogflow.v2.QueryInput;
 import com.google.cloud.dialogflow.v2.SessionName;
 import com.google.cloud.dialogflow.v2.SessionsClient;
 
-public class RequestJavaV2Task extends AsyncTask<Void, Void, DetectIntentResponse> {
+public class RequestTextClass extends AsyncTask<Void, Void, DetectIntentResponse> {
 
-  private BotReply mInterface;
+  private ReplyInterface mInterface;
   private SessionName session;
   private SessionsClient sessionsClient;
   private QueryInput queryInput;
 
-  public RequestJavaV2Task(BotReply mInterface, SessionName session, SessionsClient sessionsClient,
-      QueryInput queryInput) {
+  public RequestTextClass(ReplyInterface mInterface, SessionName session, SessionsClient sessionsClient,
+                          QueryInput queryInput) {
     this.mInterface = mInterface;
     this.session = session;
     this.sessionsClient = sessionsClient;
@@ -44,6 +44,6 @@ public class RequestJavaV2Task extends AsyncTask<Void, Void, DetectIntentRespons
 
   @Override
   protected void onPostExecute(DetectIntentResponse response) {
-    mInterface.callback(response);
+    mInterface.getChatBotReplyText(response);
   }
 }

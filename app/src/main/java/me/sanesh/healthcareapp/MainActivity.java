@@ -19,7 +19,7 @@ MaterialButton btnChatbot;
         btnChatbot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Chatbot.class);
+                Intent intent = new Intent(getApplicationContext(), ChatbotActivity.class);
                 startActivity(intent);
             }
         });

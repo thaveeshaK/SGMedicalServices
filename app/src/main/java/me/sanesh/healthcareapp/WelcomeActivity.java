@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.google.android.material.button.MaterialButton;
 
-public class Welcome extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 MaterialButton btnContinue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

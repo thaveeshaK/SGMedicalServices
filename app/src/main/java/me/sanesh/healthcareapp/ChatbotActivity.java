@@ -28,23 +28,21 @@ import java.util.Objects;
 import java.util.UUID;
 
 import me.sanesh.healthcareapp.models.Text;
-import me.sanesh.healthcareapp.utilities.BotReply;
+import me.sanesh.healthcareapp.utilities.ReplyInterface;
 import me.sanesh.healthcareapp.utilities.ChatAdapter;
-import me.sanesh.healthcareapp.utilities.SendMessageInBg;
+import me.sanesh.healthcareapp.utilities.TextSend;
 
-public class Chatbot extends AppCompatActivity implements BotReply {
+public class ChatbotActivity extends AppCompatActivity implements ReplyInterface {
 
-    RecyclerView chatView;
+    RecyclerView recyclerView;
     ChatAdapter chatAdapter;
     List<Text> messageList = new ArrayList<>();
-    EditText editMessage;
-    ImageButton btnSend;
-
-    //dialogFlow
+    EditText txtText;
+    ImageButton sendButton;
     private SessionsClient sessionsClient;
     private SessionName sessionName;
     private String uuid = UUID.randomUUID().toString();
-    private String TAG = "Chatbot";
+    private String TAG = "ChatbotActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,34 +50,34 @@ public class Chatbot extends AppCompatActivity implements BotReply {
         setContentView(R.layout.activity_chatbot);
 
 
-        chatView = findViewById(R.id.chatView);
-        editMessage = findViewById(R.id.editMessage);
-        btnSend = findViewById(R.id.btnSend);
+        recyclerView = findViewById(R.id.chatView);
+        txtText = findViewById(R.id.editMessage);
+        sendButton = findViewById(R.id.btnSend);
 
         chatAdapter = new ChatAdapter(messageList, this);
-        chatView.setAdapter(chatAdapter);
+        recyclerView.setAdapter(chatAdapter);
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
+        sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = editMessage.getText().toString();
+                String message = txtText.getText().toString();
                 if (!message.isEmpty()) {
                     messageList.add(new Text(message, false));
-                    editMessage.setText("");
-                    sendMessageToBot(message);
-                    Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged();
-                    Objects.requireNonNull(chatView.getLayoutManager())
+                    txtText.setText("");
+                    sendTextToChatBot(message);
+                    Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
+                    Objects.requireNonNull(recyclerView.getLayoutManager())
                             .scrollToPosition(messageList.size() - 1);
                 } else {
-                    Toast.makeText(Chatbot.this, "Please enter text!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChatbotActivity.this, "Please enter text!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        setUpBot();
+        chatBotSetUp();
     }
 
 
-    private void setUpBot() {
+    private void chatBotSetUp() {
         try {
             InputStream stream = this.getResources().openRawResource(R.raw.credential);
             GoogleCredentials credentials = GoogleCredentials.fromStream(stream)
@@ -98,20 +96,20 @@ public class Chatbot extends AppCompatActivity implements BotReply {
         }
     }
 
-    private void sendMessageToBot(String message) {
+    private void sendTextToChatBot(String message) {
         QueryInput input = QueryInput.newBuilder()
                 .setText(TextInput.newBuilder().setText(message).setLanguageCode("en-US")).build();
-        new SendMessageInBg(sessionName, sessionsClient, input,this).execute();
+        new TextSend(sessionName, sessionsClient, input,this).execute();
     }
 
     @Override
-    public void callback(DetectIntentResponse returnResponse) {
+    public void getChatBotReplyText(DetectIntentResponse returnResponse) {
         if (returnResponse != null) {
             String botReply = returnResponse.getQueryResult().getFulfillmentText();
             if (!botReply.isEmpty()) {
                 messageList.add(new Text(botReply, true));
                 chatAdapter.notifyDataSetChanged();
-                Objects.requireNonNull(chatView.getLayoutManager()).scrollToPosition(messageList.size() - 1);
+                Objects.requireNonNull(recyclerView.getLayoutManager()).scrollToPosition(messageList.size() - 1);
             } else {
                 Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show();
             }

@@ -11,19 +11,19 @@ import com.google.cloud.dialogflow.v2.SessionName;
 import com.google.cloud.dialogflow.v2.SessionsClient;
 
 
-public class SendMessageInBg extends AsyncTask<Void, Void, DetectIntentResponse> {
+public class TextSend extends AsyncTask<Void, Void, DetectIntentResponse> {
 
     private SessionName session;
     private SessionsClient sessionsClient;
     private QueryInput queryInput;
     private String TAG = "async";
-    private BotReply botReply;
+    private ReplyInterface replyInterface;
 
-    public SendMessageInBg(SessionName session, SessionsClient sessionsClient, QueryInput queryInput, BotReply botReply) {
+    public TextSend(SessionName session, SessionsClient sessionsClient, QueryInput queryInput, ReplyInterface replyInterface) {
         this.session = session;
         this.sessionsClient = sessionsClient;
         this.queryInput = queryInput;
-        this.botReply = botReply;
+        this.replyInterface = replyInterface;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SendMessageInBg extends AsyncTask<Void, Void, DetectIntentResponse>
     @Override
     protected void onPostExecute(DetectIntentResponse response) {
         //handle return response here
-        botReply.callback(response);
+        replyInterface.getChatBotReplyText(response);
     }
 
 }
