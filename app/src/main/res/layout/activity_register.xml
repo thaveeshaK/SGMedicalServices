@@ -248,4 +248,16 @@
             android:text="Visitor" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnRegisterUsr"
+        android:layout_width="wrap_content"
+        android:onClick="registerUser"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:background="@drawable/gradient_login"
+        app:layout_constraintBottom_toTopOf="@+id/ui_login_linearlayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
