@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     static int PERMISSION_CODE = 100;
     MaterialButton btnChatbot, btnBMI, btnCall, btnSignOut;
 
+MaterialButton btnChatbot, btnShareLocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnBMI = findViewById(R.id.btnNavBMI);
         btnCall = findViewById(R.id.btnNavCallAmbulance);
         btnSignOut = findViewById(R.id.btnSignOut);
+        btnShareLocation = findViewById(R.id.btnNavCallAmbulance);
 
         btnChatbot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
+        });
+
+        btnShareLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LocationShareActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
