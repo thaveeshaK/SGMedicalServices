@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
@@ -37,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextInputLayout txtRegisterEmailLayout, txtRegisterPasswordLayout, txtRegisterPhoneNoLayout, txtRegisterUserNameLayout,txtRegisterNameLayout;
     RadioGroup btnAccountType;
     RadioButton btnSelectedAccountType;
-    Button btnRegister;
+    MaterialButton btnRegister;
     TextView navLogin;
     String TAG = "Register GUI";
 
@@ -140,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
         } else {
             if (regPassword.isEmpty() || regPassword.equals(null) || regPassword.equals("")) {
                 txtRegisterPasswordLayout.setError("Invalid Password!");
-                Log.e(TAG, "userAuthenticator, Error: Invalid Passwords!");
+                Log.e(TAG, "userAuthenticator, Error: Please enter strong Passwords!");
                 return false;
             } else  {
                 if (regUserName.isEmpty() || regUserName.equals(null) || regUserName.equals("")) {

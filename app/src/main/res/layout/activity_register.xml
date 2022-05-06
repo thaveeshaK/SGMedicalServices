@@ -249,13 +249,13 @@
 
     </RadioGroup>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegisterUsr"
         android:layout_width="wrap_content"
         android:onClick="registerUser"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:background="@drawable/gradient_login"
+        android:text="Sign Up Now"
+        android:backgroundTint="@color/btn_bg"
         app:layout_constraintBottom_toTopOf="@+id/ui_login_linearlayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
