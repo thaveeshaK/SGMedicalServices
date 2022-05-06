@@ -15,10 +15,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    static int PERMISSION_CODE = 100;
+
     MaterialButton btnChatbot, btnBMI, btnCall, btnSignOut;
 
-MaterialButton btnChatbot, btnShareLocation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ MaterialButton btnChatbot, btnShareLocation;
         btnBMI = findViewById(R.id.btnNavBMI);
         btnCall = findViewById(R.id.btnNavCallAmbulance);
         btnSignOut = findViewById(R.id.btnSignOut);
-        btnShareLocation = findViewById(R.id.btnNavCallAmbulance);
+        btnCall = findViewById(R.id.btnNavCallAmbulance);
 
         btnChatbot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,15 +45,12 @@ MaterialButton btnChatbot, btnShareLocation;
             }
         });
 
-        if (ContextCompat.checkSelfPermission(getApplicationContext().getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
-            ;
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, PERMISSION_CODE);
+
 
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:" + 1919));
+                Intent intent = new Intent(getApplicationContext(), LocationShareActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,12 +62,5 @@ MaterialButton btnChatbot, btnShareLocation;
             finish();
         });
 
-        btnShareLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LocationShareActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

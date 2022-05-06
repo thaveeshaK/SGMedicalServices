@@ -4,28 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationShareActivity"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".LocationShareActivity">
+
+    <ImageView
+        android:id="@+id/ui_loginlogo"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="top|center"
+        android:layout_marginBottom="76dp"
+        android:src="@drawable/logowizard" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/txtCurrentLocationLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Current Location"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtCurrentLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text=""
+            android:textColor="@color/black" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txtCurrentLocationLabel"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/txtSendSmsNumber"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Current Location"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            android:hint="Phone number here" />
 
-        <TextView
-            android:id="@+id/txtCurrentLocation"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendLocation"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/btn_bg"
+            android:text="Send Location" />
+
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnCallAmbulance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/btn_bg"
+        android:text="Call Ambulance" />
 
 </LinearLayout>
